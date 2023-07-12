@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Admin Panel {% endblock %}
+
+{% block style %}
+<style>
+.foo {
+    background: green;
+    text-decoration: none;
+    display: flex;
+    font-size: 25px;
+    color: aliceblue;
+    padding: 35px 40px;
+    height: 100px;
+    width: 200px;
+}  
+.btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 45px 55px;
+  width: 320px;
+  height: 130px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container my-5" style="width: 60%;">
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-success position-relative" onclick="document.location='/allusers/'">
+        All Applications
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{users}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+    </div>
+    <div class="col-md-6">
+      <button type="button" class="btn btn-success position-relative" onclick="document.location='/approved_users/'">
+        Approved Applications
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{approve}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-success position-relative" onclick="document.location='/pending_users/'">
+        Pending Applications
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{pending}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+    </div>
+    <div class="col-md-6">
+      <button type="button" class="btn btn-success position-relative" onclick="document.location='/rejected_users/'">
+        Rejected Applications
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{reject}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
